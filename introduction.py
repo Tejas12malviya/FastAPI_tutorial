@@ -14,12 +14,9 @@ async def root():    #path operation function
 def item(item_id:int):  #decelaration of variable path decorator as i.e., caliing item_id in int formate
     return {"item id: ":item_id}
 
-# @app.get("/user/{user_name}")
-# def user(user_name:str ,me:str | None):
-#     name={"user_name":user_name}
-#     if me:
-#         name.update({"me":me})   #here user_name is set as string by default
-#     return {"User name is ":name}
+@app.get("/user/{user_name}")
+def user(user_name):  #here user_name is set as string by default
+    return {"User name is ":user_name}
  
 
 # Note: This path operation decorator will not work because when we will call /user/me , the upper path operation decorator will take me as an attribute for user_name so we need to write it above the /user /{user_name}, Also we can not rewrite the path operation decorator .
