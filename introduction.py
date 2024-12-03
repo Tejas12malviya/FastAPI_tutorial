@@ -19,7 +19,8 @@ def user(user_name):   #here user_name is set as string by default
     return {"User name is ":user_name}
  
 
-# Note: This path operation decorator will not work because when we will call /user/me , the upper path operation decorator will take me as an attribute for user_name so we need to write it above the /user /{user_name}
+# Note: This path operation decorator will not work because when we will call /user/me , the upper path operation decorator will take me as an attribute for user_name so we need to write it above the /user /{user_name} , similarly we can not redifine the path operation decorator.
+
 @app.get("/user/me")
 def user():
     return {"I am the new user"}
