@@ -24,3 +24,8 @@ def user(user_name):   #here user_name is set as string by default
 @app.get("/user/me")
 def user():
     return {"I am the new user"}
+
+@app.get("/user/me")  # When we will call this path operation decorator, the first one will work but lower will not work. 
+def user():
+    return {"I am working as the new user"}
+
