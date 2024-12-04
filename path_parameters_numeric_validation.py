@@ -22,3 +22,29 @@ def read_item(item_id: Annotated[int,Path(title="The ID of the item to get")],q:
     if q :
         result.update({"q":q})
     return result  
+
+# path parameter with with fixed pattern
+
+@app.get("/item/")
+def read_item(
+    q:Annotated[
+        str|None,Query(min_length=3,max_length=50,pattern="^fixedquery$")
+    ]=None,
+):
+    result={"items":[{"item_id":"Foo"},{"item_id":"Bar"}]}
+    if q:
+        result.update({'q':q})
+    return result
+
+'''
+We can use generic validation such as :
+alias 
+title
+description etc
+
+and specific validation for strings are :
+min_length
+max_length
+pattern etc
+
+'''
