@@ -46,7 +46,7 @@ class FoodEnum(str,Enum):
     fruits="Fruits"
     dairy="Dairy"
 
-@app.get("/food/{food_item}/")
+@app.get("/food/{food_item}/", deprecated="Hello", description="It is get module") # Deprecated means the given function is still available but is no longer recommended for use
 def food_item(food_item:FoodEnum):
     if food_item.value=='vegetable':
         return {"Food item":food_item,
