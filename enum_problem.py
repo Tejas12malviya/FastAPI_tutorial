@@ -41,3 +41,22 @@ def read_user_items(
     return item
 
 
+class FoodEnum(str,Enum):
+    vegetable="Vegetable"
+    fruits="Fruits"
+    dairy="Dairy"
+
+@app.get("/food/{food_item}/")
+def food_item(food_item:FoodEnum):
+    if food_item.value=='vegetable':
+        return {"Food item":food_item,
+                "message":" You are healty"}
+    
+    if food_item==FoodEnum.fruits:
+        return{"Food item":food_item,
+               "message":"You are eating fruit and you are feeling lighter"}
+    
+    return{"Food item":food_item,
+           "message":"It's a dairy product"}
+
+
