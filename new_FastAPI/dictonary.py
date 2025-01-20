@@ -4,7 +4,7 @@ from typing import Optional
 from fastapi import FastAPI
 from pydantic import  BaseModel,Field
 
-
+ 
 # Body do not allow any type of validation but pydantic allows us to do it using BaseModel, Field
 
 app=FastAPI()
